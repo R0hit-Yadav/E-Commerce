@@ -34,8 +34,6 @@ function App() {
           <Route path="/laptop" element={<LaptopPage />} />
           <Route path="/gaming" element={<GamingPage />} />
           <Route path="/headphone" element={<HeadphonePage />} /> 
-          
-
         </Routes>
         <ToastContainer />
       </Router>
