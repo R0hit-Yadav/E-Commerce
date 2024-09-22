@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import ItemListCreate
+from .views import CategoryListCreate
 
 urlpatterns = [
-    path('api/items/', ItemListCreate.as_view(), name='item-list-create'),
+    path('api/Category/', CategoryListCreate.as_view(), name='Category-list-create'),
 ]
     

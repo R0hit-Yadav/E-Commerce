@@ -9,6 +9,8 @@ import AdminPage from './components/AdminPage';
 import PaymentPage from './components/PaymentPage';
 import { CartProvider } from './components/CartContext';
 import { ToastContainer } from 'react-toastify';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   return (

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Carousel.css';
 
 const images = [
-    '/static/images/redsapce.jpg',
-    '/static/images/rocket.jpg',
-    '/static/images/sapce screen.jpg',
-    '/static/images/sapce suttle upper.jpg',
-    '/static/images/sapcesuttle.jpg',
+    '/static/images/Coursel1.jpg',
+    '/static/images/Coursel2.jpg',
+    '/static/images/airpods.jpg',
+    '/static/images/airtag.jpg',
+    '/static/images/apple-watch.jpg',
 ];
 
 const Carousel = () => {
@@ -51,3 +51,4 @@ const Carousel = () => {
 };
 
 export default Carousel;
+

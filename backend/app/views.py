@@ -1,7 +1,7 @@
 from rest_framework import generics
-from .models import Item
-from .serializers import ItemSerializer
+from .models import Category
+from .serializers import CategorySerializer
 
-class ItemListCreate(generics.ListCreateAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+class CategoryListCreate(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
