@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ItemCard from './ItemCard';
 import '../styles/HomePage.css';
+import Carousel from './Carousel';
 
 function HomePage() {
   const [items, setItems] = useState([]);
@@ -18,6 +19,7 @@ function HomePage() {
 
   return (
     <div className="home-page">
+      <Carousel/>
       <h1>Leptops</h1>
       <div className="item-grid">
         {items.map(item => (
