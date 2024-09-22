@@ -110,3 +110,19 @@ class Transaction(models.Model):
         return str(self.id)
     
 
+class AllItems(models.Model):
+    item_type = models.CharField(max_length=50)
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='all_items/')
+
+    def save(self, *args, **kwargs):
+        # Override save to automatically populate AllItems table
+        super().save(*args, **kwargs)
+        if self.item_type in ['phone', 'laptop', 'clothes']:
+            AllItems.objects.create(
+                item_type=self.item_type,
+                name=self.name,
+                image=self.image
+            )
+    
+

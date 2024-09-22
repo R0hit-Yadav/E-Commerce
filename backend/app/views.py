@@ -16,6 +16,7 @@ import requests
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
 from app.api import *
+from rest_framework import viewsets
 
 class PhoneListCreate(generics.ListCreateAPIView):
     queryset = Phone.objects.all()
@@ -104,4 +105,9 @@ def logout_view(request):
     # Use Django's built-in logout function
     logout(request)
     return Response({"message": "Logged out successfully"}, status=200)
+
+
+class AllItemsViewSet(viewsets.ModelViewSet):
+    queryset = AllItems.objects.all()
+    serializer_class = AllItemsSerializer
 

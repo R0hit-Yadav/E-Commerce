@@ -7,6 +7,9 @@ admin.site.register(Headphone)
 admin.site.register(Laptop)
 admin.site.register(Gaming)
 admin.site.register(Transaction)
+admin.site.register(AllItems)
+
+
 
 
 @admin.register(RegisterCustomer)

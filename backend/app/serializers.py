@@ -29,6 +29,12 @@ class GamingSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'price', 'image']
 
 
+class AllItemsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AllItems
+        fields = '__all__'
+
+
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = RegisterCustomer
