@@ -5,7 +5,7 @@ import Carousel from './Carousel';
 function HomePage() {
   return (
     <div className="home-page">
-      {/* <Carousel/> */}
+      <Carousel/>
       <br></br>
       <h1>Category</h1>
       <div className="category-grid">

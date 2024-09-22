@@ -31,13 +31,11 @@ function Navbar({ loggedIn }) {
   };
 
   const buttonStyle = {
-    backgroundColor: '#5A7737',
     color: '#ffffff',
     padding: '8px 16px',
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer',
-    fontWeight: 'bold',
     transition: 'background-color 0.3s ease, transform 0.3s ease',
     marginLeft: '10px',
   };

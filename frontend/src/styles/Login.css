@@ -1,0 +1,62 @@
+/* Login.css */
+
+body {
+  background-color: #f8f9fa; /* Light gray background */
+  font-family: 'Arial', sans-serif; /* Clean font style */
+}
+
+.card {
+  background-color: #ffffff; /* White card background */
+  border: none; /* Remove border */
+}
+
+.card h2 {
+  font-size: 24px; /* Card title size */
+  color: #333; /* Darker text color */
+  margin-bottom: 20px; /* Spacing below title */
+}
+
+.form-label {
+  font-weight: bold; /* Bold labels for clarity */
+  color: #555; /* Dark gray text */
+}
+
+.form-control {
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Slightly rounded corners */
+  padding: 10px; /* Padding inside input */
+}
+
+.form-control:focus {
+  border-color: #007bff; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Focus shadow */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Primary button color */
+  border: none; /* Remove border */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.alert {
+  margin-bottom: 20px; /* Spacing below alert */
+}
+
+.text-muted {
+  color: #6c757d; /* Muted text color */
+}
+
+.text-center {
+  text-align: center; /* Center align text */
+}
+
+a {
+  text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
