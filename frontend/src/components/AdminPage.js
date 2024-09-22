@@ -1,73 +1,72 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/AdminPage.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AdminPage() {
-  const [newItem, setNewItem] = useState({ name: '', description: '', price: '', image: null });
+  const [category, setCategory] = useState('phones');
+  const [name, setName] = useState('');
+  const [image, setImage] = useState(null);
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
 
-  const handleChange = (e) => {
-    if (e.target.name === 'image') {
-      setNewItem({ ...newItem, image: e.target.files[0] });
-    } else {
-      setNewItem({ ...newItem, [e.target.name]: e.target.value });
-    }
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('name', newItem.name);
-    formData.append('description', newItem.description);
-    formData.append('price', newItem.price);
-    if (newItem.image) {
-      formData.append('image', newItem.image);
-    }
+    formData.append('name', name);
+    formData.append('image', image);
+    formData.append('description', description);
+    formData.append('price', price);
 
-    axios.post('http://localhost:8000/api/items/', formData, {
+    await axios.post(`http://localhost:8000/api/${category}/`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-    .then(response => {
-      setNewItem({ name: '', description: '', price: '', image: null });
-      alert('Item added successfully!');
-    })
-    .catch(error => {
-      console.error('There was an error adding the item!', error);
+        'Content-Type': 'multipart/form-data',
+      },
     });
+    toast.success('item added successfully!');
+    setName('');
+    setImage(null);
   };
 
   return (
     <div className="admin-page">
       <h1>Admin - Add New Item</h1>
       <form onSubmit={handleSubmit}>
+        <select onChange={(e) => setCategory(e.target.value)} value={category}>
+          <option value="phone">Smartphones & Accessories</option>
+          <option value="laptop">Laptops & Computers</option>
+          <option value="camera">Cameras & Photography</option>
+          <option value="headphone">Audio & Headphones</option>
+          <option value="gaming">Gaming & Consoles</option> 
+        </select>
         <input
           type="text"
-          name="name"
-          placeholder="Item Name"
-          value={newItem.name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="description"
-          placeholder="Item Description"
-          value={newItem.description}
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          name="price"
-          placeholder="Item Price"
-          value={newItem.price}
-          onChange={handleChange}
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
         />
         <input
           type="file"
-          name="image"
-          onChange={handleChange}
+          onChange={(e) => setImage(e.target.files[0])}
+          required
         />
-        <button type="submit">Add Item</button>
+        <textarea
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+        <input
+          type="number"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          required
+        />
+        
+        <button type="submit">Add</button>
       </form>
     </div>
   );
