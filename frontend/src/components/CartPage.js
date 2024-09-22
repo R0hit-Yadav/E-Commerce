@@ -15,33 +15,37 @@ function CartPage() {
     navigate('/payment'); 
   };
 
+  const total = cartItems.reduce((acc, curr) => acc + parseFloat(curr.price), 0).toFixed(2);
+
   return (
     <div className="cart-page">
       <h1>Your Cart</h1>
       {cartItems.length > 0 ? (
-        <ul>
-          {cartItems.map((item, index) => (
-            <li key={index}>
-              <img src={item.image} alt={item.name} className="cart-item-image" />
-              <div>
-                <h2>{item.name}</h2>
-                <p>{item.description}</p>
-                <p>${item.price}</p>
-                <button onClick={() => handleRemove(item)}>Remove</button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul>
+            {cartItems.map((item, index) => (
+              <li key={index}>
+                <img src={item.image} alt={item.name} className="cart-item-image" />
+                <div>
+                  <h2>{item.name}</h2>
+                  <p>{item.description}</p>
+                  <p>${item.price}</p>
+                  <button onClick={() => handleRemove(item)}>Remove</button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="cart-actions">
+            <p>Total: ${total}</p>
+            <button onClick={handlePayment} className="payment-button">Proceed to Payment</button>
+          </div>
+        </>
       ) : (
         <p>Your cart is empty.</p>
-      )}
-      {cartItems.length > 0 && (
-        <div className="cart-actions">
-          <button onClick={handlePayment} className="payment-button">Proceed to Payment</button>
-        </div>
       )}
     </div>
   );
 }
 
 export default CartPage;
+
