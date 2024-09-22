@@ -12,9 +12,21 @@ export const CartProvider = ({ children }) => {
     setCartItems(cartItems.filter(cartItem => cartItem !== item));
   };
 
+  const updateQuantity = (item, quantity) => {
+    setCartItems(
+      cartItems.map(cartItem => {
+        if (cartItem === item) {
+          return { ...cartItem, quantity };
+        }
+        return cartItem;
+      })
+    );
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity }}>
       {children}
     </CartContext.Provider>
   );
 };
+
