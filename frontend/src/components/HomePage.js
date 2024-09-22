@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <div className="home-page">
       <Carousel/>
-      <h1>Leptops</h1>
+      <h1>Category</h1>
       <div className="item-grid">
         {items.map(item => (
           <ItemCard key={item.id} item={item} />
