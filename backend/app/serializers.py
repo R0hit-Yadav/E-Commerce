@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Phone, Headphone, Camera, Laptop, Gaming
+from .models import *
 
 class PhoneSerializer(serializers.ModelSerializer):
     class Meta:
@@ -27,3 +27,18 @@ class GamingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gaming
         fields = ['id', 'name', 'description', 'price', 'image']
+
+
+class RegisterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RegisterCustomer
+        fields = ['first_name', 'last_name', 'email', 'username', 'password']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        validated_data['password'] = make_password(validated_data['password'])
+        return super(RegisterSerializer, self).create(validated_data)
+
+    def create(self, validated_data):
+        validated_data['password'] = make_password(validated_data['password'])
+        return super(RegisterSerializer, self).create(validated_data)

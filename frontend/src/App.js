@@ -15,13 +15,19 @@ import CameraPage from './components/Camera';
 import LaptopPage from './components/Laptop';
 import GamingPage from './components/Gaming';
 import HeadphonePage from './components/Headphone';
+import Login from './components/Login';
+import Register from './components/Register';
+import { useState } from 'react';
+import { OrdersProvider } from './components/OrdersContext';
 
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false); 
   return (
     <CartProvider>
+      <OrdersProvider>
       <Router>
-        <Navbar />
+      <Navbar loggedIn={loggedIn} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -34,9 +40,12 @@ function App() {
           <Route path="/laptop" element={<LaptopPage />} />
           <Route path="/gaming" element={<GamingPage />} />
           <Route path="/headphone" element={<HeadphonePage />} /> 
+          <Route path='/login' element={<Login setLoggedIn={setLoggedIn}></Login>}></Route>
+          <Route path='/register' element={<Register></Register>}></Route>
         </Routes>
         <ToastContainer />
       </Router>
+      </OrdersProvider>
     </CartProvider>
   );
 }
