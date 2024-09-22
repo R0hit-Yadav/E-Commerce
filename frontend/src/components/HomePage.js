@@ -20,6 +20,7 @@ function HomePage() {
   return (
     <div className="home-page">
       <Carousel/>
+      <br></br>
       <h1>Category</h1>
       <div className="category-grid">
         <div className="category-card">

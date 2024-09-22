@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Carousel.css';
 
 const images = [
-    '/static/images/Coursel1.jpg',
-    '/static/images/Coursel2.jpg',
-    '/static/images/airpods.jpg',
-    '/static/images/airtag.jpg',
-    '/static/images/apple-watch.jpg',
+    '/static/images/c1.jpg',
+    '/static/images/c2.jpg',
+    '/static/images/c3.jpg',
+    '/static/images/c4.jpg',
+    '/static/images/c5.jpg',
+    '/static/images/c6.jpg',
+    '/static/images/c7.jpg',
+    '/static/images/c8.jpg',
 ];
 
 const Carousel = () => {
