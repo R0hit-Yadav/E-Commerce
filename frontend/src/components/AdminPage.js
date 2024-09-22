@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../styles/AdminPage.css';
 
 function AdminPage() {
-  const [newItem, setNewItem] = useState({ name: '',image: null });
+  const [newItem, setNewItem] = useState({ name: '', description: '', price: '', image: null });
 
   const handleChange = (e) => {
     if (e.target.name === 'image') {
@@ -17,17 +17,19 @@ function AdminPage() {
     e.preventDefault();
     const formData = new FormData();
     formData.append('name', newItem.name);
+    formData.append('description', newItem.description);
+    formData.append('price', newItem.price);
     if (newItem.image) {
       formData.append('image', newItem.image);
     }
 
-    axios.post('http://localhost:8000/api/cetagories/', formData, {
+    axios.post('http://localhost:8000/api/items/', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     })
     .then(response => {
-      setNewItem({ name: '', image: null });
+      setNewItem({ name: '', description: '', price: '', image: null });
       alert('Item added successfully!');
     })
     .catch(error => {
@@ -44,6 +46,20 @@ function AdminPage() {
           name="name"
           placeholder="Item Name"
           value={newItem.name}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="description"
+          placeholder="Item Description"
+          value={newItem.description}
+          onChange={handleChange}
+        />
+        <input
+          type="number"
+          name="price"
+          placeholder="Item Price"
+          value={newItem.price}
           onChange={handleChange}
         />
         <input

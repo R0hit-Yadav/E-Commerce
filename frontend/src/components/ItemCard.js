@@ -17,7 +17,7 @@ function ItemCard({ item }) {
       <img src={item.image} alt={item.name} className="item-image" />
       <h2>{item.name}</h2>
       <p>{item.description}</p>
-      <p>${item.price}</p>
+      <p>₹{item.price}</p>
       <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
