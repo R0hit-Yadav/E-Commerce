@@ -1,0 +1,47 @@
+.home-page {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .item-card {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .item-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .item-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .item-card p {
+    margin-bottom: 10px;
+  }
+  
+  .item-card button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .item-card button:hover {
+    background-color: #218838;
+  }
+  
