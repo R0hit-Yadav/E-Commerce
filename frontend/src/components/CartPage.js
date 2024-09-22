@@ -26,7 +26,7 @@ function CartPage() {
               <div>
                 <h2>{item.name}</h2>
                 <p>{item.description}</p>
-                <p>${item.price}</p>
+                <p>₹{item.price}</p>
                 <button onClick={() => handleRemove(item)}>Remove</button>
               </div>
             </li>
@@ -34,6 +34,11 @@ function CartPage() {
         </ul>
       ) : (
         <p>Your cart is empty.</p>
+      )}
+      {cartItems.length > 0 && (
+        <div className="cart-total">
+          Total: ₹{cartItems.reduce((total, item) => total + item.price, 0)}
+        </div>
       )}
       {cartItems.length > 0 && (
         <div className="cart-actions">
