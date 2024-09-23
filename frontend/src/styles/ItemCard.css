@@ -42,7 +42,7 @@
   }
   
   .item-card button {
-    background-color: #28a745;
+    background-color: #a73d28;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -52,6 +52,6 @@
   }
   
   .item-card button:hover {
-    background-color: #218838;
+    background-color: #e46226;
   }
   
